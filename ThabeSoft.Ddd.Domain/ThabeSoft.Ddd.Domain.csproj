@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<PackageId>ThabeSoft.Ddd.Domain</PackageId>
+		<Version>1.0.0-alpha.1</Version>
+		<Description>DDD 领域层实现：提供聚合根与实体的基类实现。</Description>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Authors>DaThabe</Authors>
+		<Description>DDD 核心契约层：定义聚合根、领域事件及仓储接口。</Description>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<RepositoryUrl>https://github.com/thabesoft/Ddd</RepositoryUrl>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="README.md" Pack="true" PackagePath="\"/>
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\ThabeSoft.Ddd.Abstractions\ThabeSoft.Ddd.Abstractions.csproj" />
+	</ItemGroup>
+
+</Project>

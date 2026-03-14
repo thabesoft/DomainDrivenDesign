@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<RootNamespace>ThabeSoft.Ddd</RootNamespace>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<PackageId>ThabeSoft.Ddd.Infrastructure.EfCore</PackageId>
+		<Version>1.0.0-alpha.1</Version>
+		<Description>DDD EF Core 持久化层：提供自动仓储、工作单元和事件分发。</Description>
+		<Authors>DaThabe</Authors>
+		<Description>DDD 核心契约层：定义聚合根、领域事件及仓储接口。</Description>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<RepositoryUrl>https://github.com/thabesoft/Ddd</RepositoryUrl>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="README.md" Pack="true" PackagePath="\"/>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.5" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\ThabeSoft.Ddd.Abstractions\ThabeSoft.Ddd.Abstractions.csproj" />
+	</ItemGroup>
+
+</Project>
