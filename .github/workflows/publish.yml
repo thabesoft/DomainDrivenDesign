@@ -1,0 +1,56 @@
+name: Publish DddFrame to NuGet
+
+on:
+  push:
+    # 只有推送到 v 开头的标签时才触发，例如 v1.0.0-alpha.1
+    tags:
+      - 'v*'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # 1. 检出源代码
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # 获取完整历史以确保版本信息准确
+
+      # 2. 安装 .NET 10 SDK
+      - name: Setup .NET 10
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+          # 如果 10.0 处于预览期，可以加上下面这行
+          # dotnet-quality: 'preview'
+
+      # 3. 还原依赖
+      - name: Restore
+        run: dotnet restore
+
+      # 4. 编译项目 (不打包)
+      - name: Build
+        run: dotnet build -c Release --no-restore
+
+      # 5. 打包 (核心步骤)
+      - name: Pack
+        run: |
+          # 从 GITHUB_REF_NAME 提取标签名，去掉开头的 'v'
+          # 例如 v1.0.0-alpha.1 会变成 1.0.0-alpha.1
+          TAG_VERSION=${GITHUB_REF_NAME#v}
+          
+          echo "Packing DddFrame version: $TAG_VERSION"
+          
+          # 强制指定版本号，覆盖 .csproj 中的 1.0.0-dev
+          dotnet pack -c Release -o nupkgs /p:Version=$TAG_VERSION --no-build
+
+      # 6. 推送到 NuGet.org
+      - name: Push to NuGet
+        run: |
+          # 遍历 nupkgs 文件夹下所有的 .nupkg 文件并推送
+          # --skip-duplicate 很有用，如果部分包没变动导致版本冲突，它会跳过而不是报错中止
+          dotnet nuget push "./nupkgs/*.nupkg" \
+            --api-key ${{ secrets.NUGET_API_KEY }} \
+            --source https://api.nuget.org/v3/index.json \
+            --skip-duplicate

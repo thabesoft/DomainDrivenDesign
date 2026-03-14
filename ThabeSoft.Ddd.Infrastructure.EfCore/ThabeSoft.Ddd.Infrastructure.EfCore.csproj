@@ -8,13 +8,20 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
+		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+		<Version>1.0.0-dev</Version>
 		<PackageId>ThabeSoft.Ddd.Infrastructure.EfCore</PackageId>
-		<Version>1.0.0-alpha.1</Version>
-		<Description>DDD EF Core 持久化层：提供自动仓储、工作单元和事件分发。</Description>
 		<Authors>DaThabe</Authors>
-		<Description>DDD 核心契约层：定义聚合根、领域事件及仓储接口。</Description>
+		<Company>ThabeSoft</Company>
+		<Title>ThabeSoft.Ddd.Infrastructure.EfCore</Title>
+		<PackageTags>DDD;DddFrame;EFCore;Repository;UnitOfWork;Persistence;DotNet10</PackageTags>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<Description>DDD 基础设施层（EF Core 实现）：提供自动仓储注册、工作单元（Unit of Work）及上下文集成。</Description>
+		<Copyright>Copyright (c) 2026 ThabeSoft</Copyright>
+		<RepositoryType>git</RepositoryType>
 		<RepositoryUrl>https://github.com/thabesoft/Ddd</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/thabesoft/Ddd</PackageProjectUrl>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	</PropertyGroup>
 
 	<ItemGroup>

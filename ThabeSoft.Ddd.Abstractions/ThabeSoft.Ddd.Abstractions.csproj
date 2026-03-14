@@ -8,17 +8,31 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		
+		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+		
+		<Version>1.0.0-dev</Version>
 		<PackageId>ThabeSoft.Ddd.Abstractions</PackageId>
-		<Version>1.0.0-alpha.1</Version>
+		
 		<Authors>DaThabe</Authors>
-		<Description>DDD 核心契约层：定义聚合根、领域事件及仓储接口。</Description>
+		<Company>ThabeSoft</Company>
+		<Title>ThabeSoft.Ddd.Abstractions</Title>
+		<PackageTags>DDD;DddFrame;EFCore;Repository;UnitOfWork;DotNet10</PackageTags>
+		
 		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<Description>DDD 核心契约层：定义聚合根、领域事件及仓储接口。</Description>
+		<Copyright>Copyright (c) 2026 ThabeSof</Copyright>
+		
+		<RepositoryType>git</RepositoryType>
 		<RepositoryUrl>https://github.com/thabesoft/Ddd</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/thabesoft/Ddd</PackageProjectUrl>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		
 	</PropertyGroup>
 
 	<ItemGroup>
-		<None Include="README.md" Pack="true" PackagePath="\"/>
+		<None Include="README.md" Pack="true" PackagePath="\" />
 	</ItemGroup>
 
 </Project>
+	

@@ -7,14 +7,20 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
+		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+		<Version>1.0.0-dev</Version>
 		<PackageId>ThabeSoft.Ddd.Domain</PackageId>
-		<Version>1.0.0-alpha.1</Version>
-		<Description>DDD 领域层实现：提供聚合根与实体的基类实现。</Description>
-		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<Authors>DaThabe</Authors>
-		<Description>DDD 核心契约层：定义聚合根、领域事件及仓储接口。</Description>
+		<Company>ThabeSoft</Company>
+		<Title>ThabeSoft.Ddd.Domain</Title>
+		<PackageTags>DDD;DddFrame;DomainDriveDesign;Entity;AggregateRoot;DotNet10</PackageTags>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<Description>DDD 领域核心层：提供聚合根基类、实体定义及领域事件分发基础实现。</Description>
+		<Copyright>Copyright (c) 2026 ThabeSoft</Copyright>
+		<RepositoryType>git</RepositoryType>
 		<RepositoryUrl>https://github.com/thabesoft/Ddd</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/thabesoft/Ddd</PackageProjectUrl>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	</PropertyGroup>
 
 	<ItemGroup>
