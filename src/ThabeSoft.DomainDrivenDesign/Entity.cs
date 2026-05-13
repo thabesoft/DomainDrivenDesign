@@ -1,4 +1,4 @@
-﻿namespace ThabeSoft.DomainDrivenDesign.Domain;
+﻿namespace ThabeSoft.DomainDrivenDesign;
 
 
 /// <summary>

@@ -1,6 +1,4 @@
-﻿using ThabeSoft.DomainDrivenDesign.Domain;
-
-namespace ThabeSoft.DomainDrivenDesign.Infrastructure;
+﻿namespace ThabeSoft.DomainDrivenDesign;
 
 
 /// <summary>

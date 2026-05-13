@@ -1,7 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Moq;
-using ThabeSoft.DomainDrivenDesign.Domain;
-using ThabeSoft.DomainDrivenDesign.Infrastructure;
 using ThabeSoft.Mediator;
 
 namespace ThabeSoft.DomainDrivenDesign.UnitTests;
@@ -14,9 +12,9 @@ public class MediatorTest
     public async Task PublishAsync_ShouldCallMediatorHandler()
     {
         // Arrange
-        var @event = new Mock<IMediatorDomainEvent>();
+        var @event = new Mock<IDomainEvent>();
 
-        var event_handler = new Mock<INotificationHandler<IMediatorDomainEvent>>();
+        var event_handler = new Mock<INotificationHandler<IDomainEvent>>();
         event_handler
             .Setup(x => x.HandleAsync(@event.Object, It.IsAny<CancellationToken>()))
             .Returns(ValueTask.CompletedTask)

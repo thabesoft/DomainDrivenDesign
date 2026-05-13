@@ -12,7 +12,8 @@
 
 		<!--包信息-->
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-		<Version>0.1.1</Version>
+
+		<Version>0.1.2</Version>
 		<PackageId>ThabeSoft.DomainDrivenDesign.Abstractions</PackageId>
 		<Title>ThabeSoft.DomainDrivenDesign.Abstractions</Title>
 		<Description>领域驱动核心契约：定义聚合根、领域事件、仓储、事务、值对象等接口</Description>
@@ -32,6 +33,10 @@
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
 		<PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="10.0.8" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="ThabeSoft.Mediator.Contracts" Version="1.0.0" />
 	</ItemGroup>
 
 </Project>

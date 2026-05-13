@@ -4,14 +4,15 @@
 		<TargetFramework>net10.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-		<RootNamespace>ThabeSoft.DomainDrivenDesign.Infrastructure</RootNamespace>
 	</PropertyGroup>
 
 	<PropertyGroup>
 
 		<!--包信息-->
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-		<Version>0.1.0</Version>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+
+		<Version>0.1.3</Version>
 		<PackageId>ThabeSoft.DomainDrivenDesign.EntityFrameworkCore</PackageId>
 		<Title>ThabeSoft.DomainDrivenDesign.EntityFrameworkCore</Title>
 		<Description>领域实体持久化Efcore实现</Description>

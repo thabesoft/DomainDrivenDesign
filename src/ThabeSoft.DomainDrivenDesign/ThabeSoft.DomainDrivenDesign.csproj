@@ -11,7 +11,9 @@
 
 		<!--包信息-->
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-		<Version>0.1.1</Version>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+
+		<Version>0.1.8</Version>
 		<PackageId>ThabeSoft.DomainDrivenDesign</PackageId>
 		<Title>ThabeSoft.Ddd.Abstractions</Title>
 
@@ -25,12 +27,9 @@
 		<RepositoryUrl>https://github.com/thabesoft/DomainDrivenDesign</RepositoryUrl>
 		<PackageProjectUrl>https://github.com/thabesoft/DomainDrivenDesign</PackageProjectUrl>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<IncludeSymbols>True</IncludeSymbols>
 
 	</PropertyGroup>
-
-	<ItemGroup>
-	  <PackageReference Include="ThabeSoft.Mediator" Version="0.1.3" />
-	</ItemGroup>
 
 	<ItemGroup>
 	  <ProjectReference Include="..\ThabeSoft.DomainDrivenDesign.Abstractions\ThabeSoft.DomainDrivenDesign.Abstractions.csproj" />

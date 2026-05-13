@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ThabeSoft.DomainDrivenDesign.Domain;
-using ThabeSoft.DomainDrivenDesign.Infrastructure.Infrastructure;
+using ThabeSoft.DomainDrivenDesign.EntityFrameworkCore;
 
 namespace ThabeSoft.DomainDrivenDesign.UnitTests;
 

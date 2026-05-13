@@ -1,4 +1,5 @@
-﻿namespace ThabeSoft.DomainDrivenDesign.Domain;
+﻿namespace ThabeSoft.DomainDrivenDesign;
+
 
 /// <summary>
 /// 领域异常基类

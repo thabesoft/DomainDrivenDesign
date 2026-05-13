@@ -1,0 +1,10 @@
+<Project>
+
+	<PropertyGroup>
+		<Nullable>enable</Nullable>
+		<PackageOutputPath>D:\Src\Cache\Nuget\thabesoft</PackageOutputPath>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+	</PropertyGroup>
+
+</Project>

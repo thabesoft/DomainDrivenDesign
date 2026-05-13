@@ -1,8 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using System.Reflection;
-using ThabeSoft.DomainDrivenDesign.Infrastructure;
-using ThabeSoft.DomainDrivenDesign.Infrastructure.Infrastructure;
+using ThabeSoft.DomainDrivenDesign;
+using ThabeSoft.DomainDrivenDesign.EntityFrameworkCore;
+
 
 #pragma warning disable IDE0130 // 命名空间与文件夹结构不匹配
 namespace Microsoft.Extensions.DependencyInjection;
@@ -36,8 +35,17 @@ public static class DependencyInjectionExtensions
             ServiceLifetime optionsLifetime = ServiceLifetime.Scoped) where TDbContext : DbContext
         {
             services.AddDbContext<TDbContext>(optionsAction, contextLifetime, optionsLifetime);
-            services.AddScoped<IUnitOfWork, EfcoreUnitOfWork<TDbContext>>();
+            services.AddEfCoreUnitOfWork<TDbContext>();
 
+            return services;
+        }
+
+        /// <summary>
+        /// 添加EfCore工作单元
+        /// </summary>
+        public IServiceCollection AddEfCoreUnitOfWork<TDbContext>() where TDbContext : DbContext
+        {
+            services.AddScoped<IUnitOfWork, EfcoreUnitOfWork<TDbContext>>();
             return services;
         }
     }
