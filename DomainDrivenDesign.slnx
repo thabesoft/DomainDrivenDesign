@@ -1,6 +1,9 @@
 <Solution>
-  <Project Path="Test/Test.csproj" Id="9bc5afeb-c016-499f-8f19-ead82bcef7f9" />
-  <Project Path="ThabeSoft.Ddd.Abstractions/ThabeSoft.Ddd.Abstractions.csproj" />
-  <Project Path="ThabeSoft.Ddd.Domain/ThabeSoft.Ddd.Domain.csproj" />
-  <Project Path="ThabeSoft.Ddd.Infrastructure.EfCore/ThabeSoft.Ddd.Infrastructure.EfCore.csproj" />
+  <Folder Name="/Tests/">
+    <Project Path="tests/ThabeSoft.DomainDrivenDesign.UnitTests/ThabeSoft.DomainDrivenDesign.UnitTests.csproj" />
+  </Folder>
+  <Project Path="src/ThabeSoft.DomainDrivenDesign.Abstractions/ThabeSoft.DomainDrivenDesign.Abstractions.csproj" />
+  <Project Path="src/ThabeSoft.DomainDrivenDesign.EntityFrameworkCore/ThabeSoft.DomainDrivenDesign.EntityFrameworkCore.csproj" />
+  <Project Path="src/ThabeSoft.DomainDrivenDesign.Mediator/ThabeSoft.DomainDrivenDesign.Mediator.csproj" />
+  <Project Path="src/ThabeSoft.DomainDrivenDesign/ThabeSoft.DomainDrivenDesign.csproj" />
 </Solution>
