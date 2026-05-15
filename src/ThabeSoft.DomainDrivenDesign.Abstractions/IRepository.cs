@@ -5,17 +5,28 @@
 /// 仓储
 /// </summary>
 /// <typeparam name="TEntity">聚合根类型</typeparam>
-/// <typeparam name="TKey">聚合根的主键类型</typeparam>
-public interface IRepository<TEntity, in TKey>
-    where TEntity : IAggregateRoot<TKey>
-    where TKey : notnull
+/// <typeparam name="TId">聚合根的主键类型</typeparam>
+public interface IRepository<TEntity, in TId>
+    where TEntity : IAggregateRoot<TId>
+    where TId : notnull
 {
+    /// <summary>
+    /// 查询
+    /// </summary>
+    IQueryable<TEntity> Query { get; }
+
     /// <summary>
     /// 根据Id查询
     /// </summary>
     /// <param name="id">主键</param>
     /// <returns>如果不存在则返回 null</returns>
-    ValueTask<TEntity?> FindByIdAsync(TKey id, CancellationToken cancellationToken = default);
+    ValueTask<TEntity?> FindByIdAsync(TId id, CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// 根据Id删除实体
+    /// </summary>
+    /// <param name="id">主键</param>
+    ValueTask RemoveByIdAsync(TId id, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// 添加实体
@@ -24,32 +35,7 @@ public interface IRepository<TEntity, in TKey>
     ValueTask AddAsync(TEntity entity, CancellationToken cancellationToken = default);
 
     /// <summary>
-    /// 删除实体
+    /// 添加一些实体
     /// </summary>
-    /// <param name="id">主键</param>
-    ValueTask RemoveAsync(TKey id, CancellationToken cancellationToken = default);
-
-
-    /// <summary>
-    /// 实体是否存在
-    /// </summary>
-    ValueTask<bool> ExistsAsync(TKey id, CancellationToken cancellationToken = default);
-
-    /// <summary>
-    /// 获取所有
-    /// </summary>
-    ValueTask<IReadOnlyCollection<TEntity>> GetAllAsync(CancellationToken cancellationToken = default);
-    /// <summary>
-    /// 分页获取
-    /// </summary>
-    ValueTask<IReadOnlyCollection<TEntity>> GetPagedAsync(int take, int skip = 0, CancellationToken cancellationToken = default);
-    /// <summary>
-    /// 跳过n个获取
-    /// </summary>
-    ValueTask<IReadOnlyCollection<TEntity>> GetAllAfterSkipAsync(int skip, CancellationToken cancellationToken = default);
-
-
-    ValueTask<IReadOnlyCollection<TResult>> GetAllAsync<TResult>(CancellationToken cancellationToken = default) where TResult : TEntity;
-    ValueTask<IReadOnlyCollection<TResult>> GetPagedAsync<TResult>(int take, int skip = 0, CancellationToken cancellationToken = default) where TResult : TEntity;
-    ValueTask<IReadOnlyCollection<TResult>> GetAllAfterSkipAsync<TResult>(int skip, CancellationToken cancellationToken = default) where TResult : TEntity;
+    ValueTask AddRangeAsync(IEnumerable<TEntity> entities, CancellationToken cancellationToken = default);
 }

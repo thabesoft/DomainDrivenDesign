@@ -4,14 +4,14 @@
 /// <summary>
 /// 实体
 /// </summary>
-/// <typeparam name="TKey">主键类型</typeparam>
-public interface IEntity<out TKey>
-    where TKey : notnull
+/// <typeparam name="TId">主键类型</typeparam>
+public interface IEntity<out TId>
+    where TId : notnull
 {
     /// <summary>
     /// 主键
     /// </summary>
-    TKey Id { get; }
+    TId Id { get; }
 }
 
 

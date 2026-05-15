@@ -1,23 +1,81 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ThabeSoft.DomainDrivenDesign;
 using ThabeSoft.DomainDrivenDesign.EntityFrameworkCore;
+using ThabeSoft.DomainDrivenDesign.EntityFrameworkCore.DependencyInjection;
 
 
 #pragma warning disable IDE0130 // 命名空间与文件夹结构不匹配
 namespace Microsoft.Extensions.DependencyInjection;
 #pragma warning restore IDE0130 // 命名空间与文件夹结构不匹配
 
+
 public static class DependencyInjectionExtensions
 {
     extension(IServiceCollection services)
     {
         /// <summary>
+        /// 添加 Ef-Core 持久层
+        /// </summary>
+        /// <typeparam name="TDbContext">数据库上下文类型</typeparam>
+        public IServiceCollection AddEfCorePersistence<TDbContext>(Action<EfCorePersistenceOptions<TDbContext>>? optionsAction = null)
+            where TDbContext : DbContext
+        {
+            var options = new EfCorePersistenceOptions<TDbContext>(services);
+            optionsAction?.Invoke(options);
+
+            // 注册工作单元
+            services.AddScoped<IUnitOfWork, UnitOfWork<TDbContext>>();
+
+            return services;
+        }
+
+        /// <summary>
         /// 添加 Ef-core 工作单元, 依赖 <see cref="DbContext"/>
         /// </summary>
-        public IServiceCollection AddUnitOfWork<TDbContext>() where TDbContext : DbContext
+        public IServiceCollection AddUnitOfWork<TDbContext>(Action<EfCorePersistenceOptions<TDbContext>>? optionsAction = null) where TDbContext : DbContext
         {
             services.AddScoped<IUnitOfWork, UnitOfWork<TDbContext>>();
             return services;
+        }
+
+        /// <summary>
+        /// 添加仓储
+        /// </summary>
+        public void AddRepository<TDbContext, TEntity, TId>()
+            where TDbContext : DbContext
+            where TEntity : class, IAggregateRoot<TId>
+            where TId : notnull
+        {
+            services.AddScoped<IRepository<TEntity, TId>, Repository<TDbContext, TEntity, TId>>();
+        }
+
+        /// <summary>
+        /// 添加自定义仓库实现
+        /// </summary>
+        public void AddRepository<TDbContext, TRepositoryImplementation, TEntity, TId>()
+            where TDbContext : DbContext
+            where TRepositoryImplementation : class, IRepository<TEntity, TId>
+            where TEntity : class, IAggregateRoot<TId>
+            where TId : notnull
+        {
+            services.AddScoped<TRepositoryImplementation>();
+            services.AddScoped<IRepository<TEntity, TId>>(sp => sp.GetRequiredService<TRepositoryImplementation>());
+        }
+
+        /// <summary>
+        /// 添加自定义实现仓储
+        /// </summary>
+        /// <typeparam name="TRepositoryService">仓储类型</typeparam>
+        /// <typeparam name="TRepositoryImplementation">仓储实现</typeparam>
+        public void AddRepository<TDbContext, TRepositoryService, TRepositoryImplementation, TEntity, TId>()
+            where TDbContext : DbContext
+            where TRepositoryService : class, IRepository<TEntity, TId>
+            where TRepositoryImplementation : class, TRepositoryService
+            where TEntity : class, IAggregateRoot<TId>
+            where TId : notnull
+        {
+            services.AddScoped<TRepositoryService, TRepositoryImplementation>();
+            services.AddScoped<IRepository<TEntity, TId>>(sp => sp.GetRequiredService<TRepositoryService>());
         }
     }
 }

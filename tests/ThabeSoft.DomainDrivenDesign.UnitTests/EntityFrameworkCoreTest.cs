@@ -82,7 +82,7 @@ public class EntityFrameworkCoreTest
         await _dbContext.SaveChangesAsync(TestContext.CancellationToken);
 
         // Act
-        await _repository.RemoveAsync(entity.Id, TestContext.CancellationToken);
+        await _repository.RemoveByIdAsync(entity.Id, TestContext.CancellationToken);
         await _dbContext.SaveChangesAsync(TestContext.CancellationToken);
 
         // Assert
@@ -94,7 +94,7 @@ public class EntityFrameworkCoreTest
     public async Task RemoveAsync_ShouldDoNothing_WhenNotExists()
     {
         // Act（不应抛出异常）
-        await _repository.RemoveAsync(Guid.NewGuid(), TestContext.CancellationToken);
+        await _repository.RemoveByIdAsync(Guid.NewGuid(), TestContext.CancellationToken);
         await _dbContext.SaveChangesAsync(TestContext.CancellationToken);
 
         // Assert
@@ -118,7 +118,7 @@ public class EntityFrameworkCoreTest
             modelBuilder.Entity<TestEntity>().HasKey(x => x.Id);
         }
     }
-    public class TestRepository(TestDbContext dbContext) : RepositoryBase<TestDbContext, TestEntity, Guid>(dbContext)
+    public class TestRepository(TestDbContext dbContext) : Repository<TestDbContext, TestEntity, Guid>(dbContext)
     {
     }
 

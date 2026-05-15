@@ -12,7 +12,7 @@
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 
-		<Version>0.1.8</Version>
+		<Version>0.1.13</Version>
 		<PackageId>ThabeSoft.DomainDrivenDesign.EntityFrameworkCore</PackageId>
 		<Title>ThabeSoft.DomainDrivenDesign.EntityFrameworkCore</Title>
 		<Description>领域实体持久化Efcore实现</Description>
