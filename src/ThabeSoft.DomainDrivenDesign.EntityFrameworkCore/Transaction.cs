@@ -6,7 +6,7 @@ namespace ThabeSoft.DomainDrivenDesign.EntityFrameworkCore;
 /// <summary>
 /// 包装了Efcore 的事务
 /// </summary>
-internal sealed class EfcoreTransaction(IDbContextTransaction transaction) : ITransaction
+internal sealed class Transaction(IDbContextTransaction transaction) : ITransaction
 {
     /// <summary>
     /// 提交当前事务，使所有数据库更改永久生效。

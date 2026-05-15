@@ -5,5 +5,4 @@
   <Project Path="src/ThabeSoft.DomainDrivenDesign.Abstractions/ThabeSoft.DomainDrivenDesign.Abstractions.csproj" />
   <Project Path="src/ThabeSoft.DomainDrivenDesign.EntityFrameworkCore/ThabeSoft.DomainDrivenDesign.EntityFrameworkCore.csproj" />
   <Project Path="src/ThabeSoft.DomainDrivenDesign.Mediator/ThabeSoft.DomainDrivenDesign.Mediator.csproj" />
-  <Project Path="src/ThabeSoft.DomainDrivenDesign/ThabeSoft.DomainDrivenDesign.csproj" />
 </Solution>

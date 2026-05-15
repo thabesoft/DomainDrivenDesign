@@ -7,13 +7,13 @@ namespace ThabeSoft.DomainDrivenDesign.EntityFrameworkCore;
 /// 包装了efcore的工作单元
 /// </summary>
 /// <typeparam name="TDbContext">关联的具体数据库上下文类型。</typeparam>
-internal sealed class EfcoreUnitOfWork<TDbContext>(TDbContext dbContext, IDomainEventPublisher publisher) : IUnitOfWork
+internal sealed class UnitOfWork<TDbContext>(TDbContext dbContext, IDomainEventPublisher publisher) : IUnitOfWork
     where TDbContext : DbContext
 {
     public async ValueTask<ITransaction> BeginTransactionAsync(CancellationToken cancellationToken = default)
     {
         var transaction = await dbContext.Database.BeginTransactionAsync(cancellationToken);
-        return new EfcoreTransaction(transaction);
+        return new Transaction(transaction);
     }
 
     public async ValueTask SaveChangesAsync(CancellationToken cancellationToken = default)

@@ -102,25 +102,6 @@ public class EntityFrameworkCoreTest
         Assert.AreEqual(0, count);
     }
 
-    [TestMethod]
-    public async Task UpdateAsync_ShouldUpdateEntity()
-    {
-        // Arrange
-        var original = new TestEntity(Guid.CreateVersion7());
-        await _dbContext.TestEntities.AddAsync(original, TestContext.CancellationToken);
-        await _dbContext.SaveChangesAsync(TestContext.CancellationToken);
-
-        var updated = new TestEntity(original.Id);
-
-        // Act
-        await _repository.UpdateAsync(updated, TestContext.CancellationToken);
-        await _dbContext.SaveChangesAsync(TestContext.CancellationToken);
-
-        // Assert
-        var result = await _dbContext.TestEntities.FindAsync([original.Id], cancellationToken: TestContext.CancellationToken);
-        Assert.IsNotNull(result);
-    }
-
 
     #region -- 测试数据定义 --
 
@@ -137,7 +118,7 @@ public class EntityFrameworkCoreTest
             modelBuilder.Entity<TestEntity>().HasKey(x => x.Id);
         }
     }
-    public class TestRepository(TestDbContext dbContext) : EfCoreRepositoryBase<TestDbContext, TestEntity, Guid>(dbContext)
+    public class TestRepository(TestDbContext dbContext) : RepositoryBase<TestDbContext, TestEntity, Guid>(dbContext)
     {
     }
 

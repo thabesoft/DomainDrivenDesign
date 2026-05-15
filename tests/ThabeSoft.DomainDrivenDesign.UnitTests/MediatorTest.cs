@@ -22,7 +22,7 @@ public class MediatorTest
 
         ServiceCollection descriptors = new();
         descriptors.AddMediator(ServiceLifetime.Scoped);
-        descriptors.AddMediatorDomainEventPublisher();
+        descriptors.AddDomainEventPublisher();
         descriptors.AddScoped(_ => event_handler.Object);
 
         var services = descriptors.BuildServiceProvider();

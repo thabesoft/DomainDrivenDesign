@@ -10,11 +10,10 @@ public static class DependencyInjectionExtensions
     extension(IServiceCollection services)
     {
         /// <summary>
-        /// 添加 Mediator 领域事件发布器
+        /// 添加 Mediator 领域事件发布器, 依赖 <see cref="ThabeSoft.Mediator.IPublisher"/>
         /// </summary>
-        public IServiceCollection AddMediatorDomainEventPublisher(ServiceLifetime serviceLifetime = ServiceLifetime.Scoped)
+        public IServiceCollection AddDomainEventPublisher()
         {
-            services.AddMediator(serviceLifetime);
             services.AddScoped<IDomainEventPublisher, MediatorDomainEventPublisher>();
             return services;
         }

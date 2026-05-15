@@ -8,8 +8,8 @@ namespace ThabeSoft.DomainDrivenDesign.Mediator;
 /// </summary>
 internal sealed class MediatorDomainEventPublisher(IPublisher publisher) : IDomainEventPublisher
 {
-    public ValueTask PublishAsync<T>(T @event, CancellationToken cancellationToken = default) where T : IDomainEvent
+    public ValueTask PublishAsync(IDomainEvent @event, CancellationToken cancellationToken = default)
     {
-        return publisher.PublishAsync(@event, cancellationToken);
+        return publisher.PublishUntypedAsync(@event, cancellationToken);
     }
 }

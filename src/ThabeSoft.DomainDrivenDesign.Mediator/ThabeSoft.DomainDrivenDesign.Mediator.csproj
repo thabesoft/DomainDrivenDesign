@@ -13,7 +13,7 @@
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 
-		<Version>0.1.4</Version>
+		<Version>0.1.9</Version>
 		<PackageId>ThabeSoft.DomainDrivenDesign.Mediator</PackageId>
 		<Title>ThabeSoft.DomainDrivenDesign.Mediator</Title>
 		<Description>领域事件中介者分发器</Description>

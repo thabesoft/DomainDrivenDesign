@@ -11,41 +11,12 @@ public static class DependencyInjectionExtensions
 {
     extension(IServiceCollection services)
     {
-        ///// <summary>
-        ///// 添加 Ef-core 持久层
-        ///// </summary>
-        ///// <returns></returns>
-        //public IServiceCollection AddEfCorePersistence<TDbContext>(Action<EfCorePersistenceOptionsBuilder<TDbContext>> persistenceOptionsAction = null)
-        //    where TDbContext : DbContext
-        //{
-        //    // 配置
-        //    var options = new EfCorePersistenceOptionsBuilder<TDbContext>(services);
-        //    persistenceOptionsAction.Invoke(options);
-
-        //    return services;
-        //}
-
-
         /// <summary>
-        /// 添加 Ef-core 持久层
+        /// 添加 Ef-core 工作单元, 依赖 <see cref="DbContext"/>
         /// </summary>
-        public IServiceCollection AddEfCorePersistence<TDbContext>(
-            Action<DbContextOptionsBuilder>? optionsAction = null,
-            ServiceLifetime contextLifetime = ServiceLifetime.Scoped,
-            ServiceLifetime optionsLifetime = ServiceLifetime.Scoped) where TDbContext : DbContext
+        public IServiceCollection AddUnitOfWork<TDbContext>() where TDbContext : DbContext
         {
-            services.AddDbContext<TDbContext>(optionsAction, contextLifetime, optionsLifetime);
-            services.AddEfCoreUnitOfWork<TDbContext>();
-
-            return services;
-        }
-
-        /// <summary>
-        /// 添加EfCore工作单元
-        /// </summary>
-        public IServiceCollection AddEfCoreUnitOfWork<TDbContext>() where TDbContext : DbContext
-        {
-            services.AddScoped<IUnitOfWork, EfcoreUnitOfWork<TDbContext>>();
+            services.AddScoped<IUnitOfWork, UnitOfWork<TDbContext>>();
             return services;
         }
     }

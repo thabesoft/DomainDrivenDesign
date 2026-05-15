@@ -12,8 +12,9 @@
 
 		<!--包信息-->
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 
-		<Version>0.1.2</Version>
+		<Version>0.1.5</Version>
 		<PackageId>ThabeSoft.DomainDrivenDesign.Abstractions</PackageId>
 		<Title>ThabeSoft.DomainDrivenDesign.Abstractions</Title>
 		<Description>领域驱动核心契约：定义聚合根、领域事件、仓储、事务、值对象等接口</Description>
