@@ -12,13 +12,12 @@
 	<PropertyGroup>
 
 		<!--生成-->
-		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<GeneratePackageOnBuild Condition="'$(Configuration)' == 'Release'">true</GeneratePackageOnBuild>
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 
 		<!--基础-->
-		<PackageId>ThabeSoft.DomainDrivenDesign.Mediator</PackageId>
-		<Version>0.1.0-alpha.1</Version>
+		<Version>0.1.0-alpha.$([System.DateTime]::Now.ToString("yyMMdd-HHmmss"))</Version>
 		<Title>ThabeSoft.DomainDrivenDesign.Mediator</Title>
 
 		<!--描述-->

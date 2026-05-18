@@ -10,12 +10,12 @@
 	<PropertyGroup>
 
 		<!--包信息-->
-		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<GeneratePackageOnBuild Condition="'$(Configuration)' == 'Release'">true</GeneratePackageOnBuild>
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 
 		<!--基础-->
-		<Version>0.1.0-alpha.1</Version>
+		<Version>0.1.0-alpha.$([System.DateTime]::Now.ToString("yyMMdd-HHmmss"))</Version>
 		<PackageId>ThabeSoft.DomainDrivenDesign.EntityFrameworkCore</PackageId>
 		<Title>ThabeSoft.DomainDrivenDesign.EntityFrameworkCore</Title>
 

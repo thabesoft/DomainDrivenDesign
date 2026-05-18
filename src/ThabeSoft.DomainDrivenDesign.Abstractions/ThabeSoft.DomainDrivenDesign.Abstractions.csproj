@@ -13,11 +13,11 @@
 	<PropertyGroup>
 
 		<!--生成-->
-		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<GeneratePackageOnBuild Condition="'$(Configuration)' == 'Release'">true</GeneratePackageOnBuild>
 
 		<!--基础-->
 		<PackageId>ThabeSoft.DomainDrivenDesign.Abstractions</PackageId>
-		<Version>0.1.0-alpha.1</Version>
+		<Version>0.1.0-alpha.$([System.DateTime]::Now.ToString("yyMMdd-HHmmss"))</Version>
 		<Title>ThabeSoft.DomainDrivenDesign.Abstractions</Title>
 		
 		<!--描述-->

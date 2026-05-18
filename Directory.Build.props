@@ -21,11 +21,13 @@
 		<AnalysisLevel>latest</AnalysisLevel>
 		<EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
 
+
+		<PackageOutputPath>$(MSBuildThisFileDirectory).nuget\</PackageOutputPath>
+		
 	</PropertyGroup>
 
 	<ItemGroup>
 		<None Include="$(MSBuildThisFileDirectory)res\nuget_icon.jpg" Pack="true" PackagePath="\" />
 	</ItemGroup>
-
 
 </Project>
