@@ -35,10 +35,10 @@
 
 	<ItemGroup>
 	  <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.8" />
+	  <PackageReference Include="ThabeSoft.Mediator" Version="0.1.0-alpha.2" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\libs\Mediator\src\ThabeSoft.Mediator\ThabeSoft.Mediator.csproj" />
 	  <ProjectReference Include="..\ThabeSoft.DomainDrivenDesign.Abstractions\ThabeSoft.DomainDrivenDesign.Abstractions.csproj" />
 	</ItemGroup>
 
