@@ -1,10 +1,31 @@
 <Project>
 
+	<!--包信息-->
 	<PropertyGroup>
-		<Nullable>enable</Nullable>
-		<PackageOutputPath>D:\Src\Cache\Nuget\thabesoft</PackageOutputPath>
-		<IncludeSymbols>true</IncludeSymbols>
-		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+
+		<!--版权-->
+		<Authors>DaThabe</Authors>
+		<Company>ThabeSoft</Company>
+		<Product>DomainDrivenDesign</Product>
+		<Copyright>Copyright (c) ThabeSoft 2026</Copyright>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+
+		<!--仓库-->
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>https://github.com/thabesoft/DomainDrivenDesign</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/thabesoft/DomainDrivenDesign</PackageProjectUrl>
+		<PackageIcon>nuget_icon.jpg</PackageIcon>
+
+		<!--分析器-->
+		<EnableNETAnalyzers>true</EnableNETAnalyzers>
+		<AnalysisLevel>latest</AnalysisLevel>
+		<EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+
 	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="$(MSBuildThisFileDirectory)res\nuget_icon.jpg" Pack="true" PackagePath="\" />
+	</ItemGroup>
+
 
 </Project>

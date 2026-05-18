@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ThabeSoft.DomainDrivenDesign.EntityFrameworkCore;
 
 namespace ThabeSoft.DomainDrivenDesign.UnitTests;
 

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Storage;
 
-namespace ThabeSoft.DomainDrivenDesign.EntityFrameworkCore;
+namespace ThabeSoft.DomainDrivenDesign;
 
 
 /// <summary>

@@ -5,37 +5,40 @@
 		<LangVersion>preview</LangVersion>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
+		<RootNamespace>ThabeSoft.DomainDrivenDesign</RootNamespace>
 	</PropertyGroup>
 
+	<!--包信息-->
 	<PropertyGroup>
 
-		<!--包信息-->
+		<!--生成-->
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 
-		<Version>0.1.9</Version>
+		<!--基础-->
 		<PackageId>ThabeSoft.DomainDrivenDesign.Mediator</PackageId>
+		<Version>0.1.0-alpha.1</Version>
 		<Title>ThabeSoft.DomainDrivenDesign.Mediator</Title>
+
+		<!--描述-->
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<Description>领域事件中介者分发器</Description>
-
-		<!--介绍-->
-		<Authors>DaThabe</Authors>
-		<Company>ThabeSoft</Company>
-		<Product>DomainDrivenDesign.Mediator</Product>
-
-		<!--仓库-->
-		<RepositoryType>git</RepositoryType>
-		<RepositoryUrl>https://github.com/thabesoft/DomainDrivenDesign</RepositoryUrl>
-		<PackageProjectUrl>https://github.com/thabesoft/DomainDrivenDesign</PackageProjectUrl>
-		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageTags>DDD;DomainDrivenDesign;领域驱动设计;Mediator;中介者</PackageTags>
+		<PackageIcon>nuget_icon.jpg</PackageIcon>
 
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="ThabeSoft.Mediator" Version="0.1.9" />
+		<None Include="README.md" Pack="true" PackagePath="\" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.8" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\libs\Mediator\src\ThabeSoft.Mediator\ThabeSoft.Mediator.csproj" />
 	  <ProjectReference Include="..\ThabeSoft.DomainDrivenDesign.Abstractions\ThabeSoft.DomainDrivenDesign.Abstractions.csproj" />
 	</ItemGroup>
 

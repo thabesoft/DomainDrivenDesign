@@ -4,37 +4,35 @@
 		<TargetFramework>net10.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
+		<RootNamespace>ThabeSoft.DomainDrivenDesign</RootNamespace>
 	</PropertyGroup>
 
 	<PropertyGroup>
 
 		<!--包信息-->
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 
-		<Version>0.1.13</Version>
+		<!--基础-->
+		<Version>0.1.0-alpha.1</Version>
 		<PackageId>ThabeSoft.DomainDrivenDesign.EntityFrameworkCore</PackageId>
 		<Title>ThabeSoft.DomainDrivenDesign.EntityFrameworkCore</Title>
-		<Description>领域实体持久化Efcore实现</Description>
 
-		<!--介绍-->
-		<Authors>DaThabe</Authors>
-		<Company>ThabeSoft</Company>
-		<Product>DomainDrivenDesign..EntityFrameworkCore</Product>
+		<!--描述-->
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<Description>领域驱动一些默认实现：聚合根、实体、等基类</Description>
+		<PackageTags>DDD;DomainDrivenDesign;领域驱动设计;AggregateRoot;DomainEvent;ValueObject</PackageTags>
 
-		<!--仓库-->
-		<RepositoryType>git</RepositoryType>
-		<RepositoryUrl>https://github.com/thabesoft/DomainDrivenDesign</RepositoryUrl>
-		<PackageProjectUrl>https://github.com/thabesoft/DomainDrivenDesign</PackageProjectUrl>
-		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		
 	</PropertyGroup>
 
+	<ItemGroup>
+		<None Include="README.md" Pack="true" PackagePath="\" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.8" />
 	</ItemGroup>
-
 
 	<ItemGroup>
 	  <ProjectReference Include="..\ThabeSoft.DomainDrivenDesign.Abstractions\ThabeSoft.DomainDrivenDesign.Abstractions.csproj" />

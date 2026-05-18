@@ -1,5 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+	<!--框架&语言-->
 	<PropertyGroup>
 		<TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
 		<LangVersion>preview</LangVersion>
@@ -8,36 +9,31 @@
 		<RootNamespace>ThabeSoft.DomainDrivenDesign</RootNamespace>
 	</PropertyGroup>
 
+	<!--包信息-->
 	<PropertyGroup>
 
-		<!--包信息-->
+		<!--生成-->
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 
-		<Version>0.1.7</Version>
+		<!--基础-->
 		<PackageId>ThabeSoft.DomainDrivenDesign.Abstractions</PackageId>
+		<Version>0.1.0-alpha.1</Version>
 		<Title>ThabeSoft.DomainDrivenDesign.Abstractions</Title>
-		<Description>领域驱动核心契约：定义聚合根、领域事件、仓储、事务、值对象等接口</Description>
-
-		<!--介绍-->
-		<Authors>DaThabe</Authors>
-		<Company>ThabeSoft</Company>
-		<Product>DomainDrivenDesign</Product>
-
-		<!--仓库-->
-		<RepositoryType>git</RepositoryType>
-		<RepositoryUrl>https://github.com/thabesoft/DomainDrivenDesign</RepositoryUrl>
-		<PackageProjectUrl>https://github.com/thabesoft/DomainDrivenDesign</PackageProjectUrl>
-		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		
+		<!--描述-->
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<Description>领域驱动核心契约：定义聚合根、领域事件、仓储、事务、值对象等接口</Description>
+		<PackageTags>DDD;DomainDrivenDesign;领域驱动设计;AggregateRoot;DomainEvent;Repository;ValueObject</PackageTags>
+
 	</PropertyGroup>
 
-	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-		<PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="10.0.8" />
+	<ItemGroup>
+		<None Include="README.md" Pack="true" PackagePath="\" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <PackageReference Include="ThabeSoft.Mediator.Contracts" Version="1.0.0" />
+	<!--依赖-->
+	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+		<PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="10.0.8" />
 	</ItemGroup>
 
 </Project>

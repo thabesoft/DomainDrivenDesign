@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace ThabeSoft.DomainDrivenDesign.EntityFrameworkCore.DependencyInjection;
+namespace ThabeSoft.DomainDrivenDesign.DependencyInjection;
 
 
 /// <summary>

@@ -1,38 +1,38 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net10.0</TargetFramework>
+		<TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<LangVersion>preview</LangVersion>
 	</PropertyGroup>
 
+	<!--包信息-->
 	<PropertyGroup>
 
-		<!--包信息-->
+		<!--生成-->
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 
-		<Version>0.1.14</Version>
+		<!--基础-->
 		<PackageId>ThabeSoft.DomainDrivenDesign</PackageId>
-		<Title>ThabeSoft.Ddd.Abstractions</Title>
+		<Version>0.1.0-alpha.1</Version>
+		<Title>ThabeSoft.DomainDrivenDesign</Title>
 
-		<!--介绍-->
-		<Authors>DaThabe</Authors>
-		<Company>ThabeSoft</Company>
-		<Product>DomainDrivenDesign</Product>
-
-		<!--仓库-->
-		<RepositoryType>git</RepositoryType>
-		<RepositoryUrl>https://github.com/thabesoft/DomainDrivenDesign</RepositoryUrl>
-		<PackageProjectUrl>https://github.com/thabesoft/DomainDrivenDesign</PackageProjectUrl>
-		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<IncludeSymbols>True</IncludeSymbols>
+		<!--描述-->
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<Description>领域驱动一些默认实现：聚合根、实体、等基类</Description>
+		<PackageTags>DDD;DomainDrivenDesign;领域驱动设计;AggregateRoot;DomainEvent;ValueObject</PackageTags>
 
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\ThabeSoft.DomainDrivenDesign.Abstractions\ThabeSoft.DomainDrivenDesign.Abstractions.csproj" />
+		<None Include="README.md" Pack="true" PackagePath="\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\ThabeSoft.DomainDrivenDesign.Abstractions\ThabeSoft.DomainDrivenDesign.Abstractions.csproj" />
 	</ItemGroup>
 
 </Project>

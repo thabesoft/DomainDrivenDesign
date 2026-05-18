@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace ThabeSoft.DomainDrivenDesign.EntityFrameworkCore;
+namespace ThabeSoft.DomainDrivenDesign;
 
 public static class RepositoryExtensions
 {

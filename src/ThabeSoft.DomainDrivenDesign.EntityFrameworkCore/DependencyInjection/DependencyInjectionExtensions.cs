@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ThabeSoft.DomainDrivenDesign;
-using ThabeSoft.DomainDrivenDesign.EntityFrameworkCore;
-using ThabeSoft.DomainDrivenDesign.EntityFrameworkCore.DependencyInjection;
+using ThabeSoft.DomainDrivenDesign.DependencyInjection;
+
 
 
 #pragma warning disable IDE0130 // 命名空间与文件夹结构不匹配
@@ -24,7 +24,7 @@ public static class DependencyInjectionExtensions
             optionsAction?.Invoke(options);
 
             // 注册工作单元
-            services.AddScoped<IUnitOfWork, UnitOfWork<TDbContext>>();
+            services.AddUnitOfWork<TDbContext>();
 
             return services;
         }
@@ -32,7 +32,7 @@ public static class DependencyInjectionExtensions
         /// <summary>
         /// 添加 Ef-core 工作单元, 依赖 <see cref="DbContext"/>
         /// </summary>
-        public IServiceCollection AddUnitOfWork<TDbContext>(Action<EfCorePersistenceOptions<TDbContext>>? optionsAction = null) where TDbContext : DbContext
+        public IServiceCollection AddUnitOfWork<TDbContext>() where TDbContext : DbContext
         {
             services.AddScoped<IUnitOfWork, UnitOfWork<TDbContext>>();
             return services;

@@ -1,8 +1,14 @@
 <Solution>
+  <Folder Name="/Libs/">
+    <Project Path="libs/Mediator/src/ThabeSoft.Mediator.Abstractions/ThabeSoft.Mediator.Abstractions.csproj" />
+    <Project Path="libs/Mediator/src/ThabeSoft.Mediator.Contracts/ThabeSoft.Mediator.Contracts.csproj" />
+    <Project Path="libs/Mediator/src/ThabeSoft.Mediator/ThabeSoft.Mediator.csproj" />
+  </Folder>
   <Folder Name="/Tests/">
     <Project Path="tests/ThabeSoft.DomainDrivenDesign.UnitTests/ThabeSoft.DomainDrivenDesign.UnitTests.csproj" />
   </Folder>
   <Project Path="src/ThabeSoft.DomainDrivenDesign.Abstractions/ThabeSoft.DomainDrivenDesign.Abstractions.csproj" />
   <Project Path="src/ThabeSoft.DomainDrivenDesign.EntityFrameworkCore/ThabeSoft.DomainDrivenDesign.EntityFrameworkCore.csproj" />
   <Project Path="src/ThabeSoft.DomainDrivenDesign.Mediator/ThabeSoft.DomainDrivenDesign.Mediator.csproj" />
+  <Project Path="src/ThabeSoft.DomainDrivenDesign/ThabeSoft.DomainDrivenDesign.csproj" />
 </Solution>

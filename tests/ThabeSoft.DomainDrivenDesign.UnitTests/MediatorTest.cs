@@ -12,9 +12,9 @@ public class MediatorTest
     public async Task PublishAsync_ShouldCallMediatorHandler()
     {
         // Arrange
-        var @event = new Mock<IDomainEvent>();
+        var @event = new Mock<IMediatorDomainEvent>();
 
-        var event_handler = new Mock<INotificationHandler<IDomainEvent>>();
+        var event_handler = new Mock<INotificationHandler<IMediatorDomainEvent>>();
         event_handler
             .Setup(x => x.HandleAsync(@event.Object, It.IsAny<CancellationToken>()))
             .Returns(ValueTask.CompletedTask)
